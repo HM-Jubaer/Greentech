@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreenTech Style Guide</title>
+  <meta name="description" content="GreenTech brand and UI style guide: logo, color, type, components and content rules for the new online store.">
+  <meta name="theme-color" content="#0B3B24">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Nunito:wght@900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/icons.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <style>
+    .sg-hero { background: radial-gradient(520px 380px at 88% 0%, rgba(102,86,255,.45), transparent 70%), radial-gradient(420px 320px at 0% 100%, rgba(0,166,81,.28), transparent 70%), var(--night-900); color: #fff; padding: 56px 0 48px; position: relative; overflow: hidden; }
+    .sg-hero p { color: #C9C6F0 !important; }
+    .sg-hero__meta { color: #A9A6D6 !important; }
+    .sg-hero .logo svg { height: 64px; }
+    .sg-hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 28px 0 12px; }
+    .sg-hero p { color: #CFE3D7; max-width: 640px; font-size: var(--text-lg); }
+    .sg-hero__meta { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 24px; font-size: var(--text-sm); color: #A9C4B5; }
+    .sg-hero__meta b { color: var(--leaf-500); }
+
+    .sg { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding-block: 48px 80px; }
+    .sg-nav { position: sticky; top: 24px; align-self: start; }
+    .sg-nav ol { counter-reset: s; display: grid; gap: 2px; }
+    .sg-nav a { display: flex; gap: 10px; padding: 8px 12px; border-radius: var(--radius-sm); font-size: var(--text-sm); font-weight: 600; color: var(--ink-700); }
+    .sg-nav a::before { counter-increment: s; content: counter(s, decimal-leading-zero); color: var(--ink-400); font-variant-numeric: tabular-nums; }
+    .sg-nav a:hover { background: #fff; color: var(--green-700); }
+    @media (max-width: 960px) { .sg { grid-template-columns: 1fr; } .sg-nav { position: static; } .sg-nav ol { display: flex; flex-wrap: wrap; gap: 4px; } }
+
+    .sg-sec { scroll-margin-top: 24px; }
+    .sg-sec + .sg-sec { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--ink-200); }
+    .sg-sec > h2 { font-size: var(--text-3xl); margin-bottom: 8px; }
+    .sg-sec > .lead { color: var(--ink-500); max-width: 68ch; margin-bottom: 28px; font-size: var(--text-lg); }
+    .sg-sec h3 { font-size: var(--text-lg); margin: 36px 0 14px; }
+    .sg-card { background: #fff; border: 1px solid var(--ink-200); border-radius: var(--radius-lg); padding: 24px; }
+    .sg-grid { display: grid; gap: 16px; }
+    .sg-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sg-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sg-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    @media (max-width: 760px) { .sg-grid--2, .sg-grid--3, .sg-grid--4 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .sg-grid--2, .sg-grid--3, .sg-grid--4 { grid-template-columns: 1fr; } }
+    .sg-label { font-size: var(--text-xs); color: var(--ink-500); margin-top: 10px; }
+    .sg-code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12px; background: var(--ink-100); border-radius: 4px; padding: 1px 6px; color: var(--ink-900); }
+
+    /* Logo */
+    .logo-tile { border-radius: var(--radius-lg); display: grid; place-items: center; min-height: 180px; padding: 32px; border: 1px solid var(--ink-200); }
+    .logo-tile .logo svg { height: 56px; }
+    .logo-tile--dark { background: var(--night-900); border-color: var(--night-900); }
+    .support { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin-top: 16px; }
+    @media (max-width: 760px) { .support { grid-template-columns: 1fr; } }
+    .support__demo { border-radius: var(--radius-lg); padding: 28px; color: #fff; background: radial-gradient(360px 240px at 100% 0%, rgba(102,86,255,.5), transparent 70%), radial-gradient(300px 220px at 0% 100%, rgba(0,166,81,.3), transparent 70%), var(--night-900); display: grid; gap: 14px; align-content: center; }
+    .support__demo .logo svg { height: 40px; }
+    .support__demo h4 { font-family: var(--font-display); font-size: var(--text-2xl); }
+    .support__demo h4 em { font-style: normal; color: var(--leaf-500); }
+    .support__demo .row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .support__demo .pill { font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+    .logo-tile--brand { background: var(--green-700); border-color: var(--green-700); }
+    .logo-tile--space { background: #fff; position: relative; }
+    .logo-tile--space .logo { outline: 2px dashed var(--orange-500); outline-offset: 18px; }
+    .dont { position: relative; }
+    .dont .logo-tile { min-height: 140px; }
+    .dont .logo-tile .logo svg { height: 40px; }
+    .dont__x { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; border-radius: 50%; background: var(--danger-600); color: #fff; display: grid; place-items: center; }
+    .dont__x .ico { width: 14px; height: 14px; stroke-width: 3; }
+    .dont p { font-size: var(--text-sm); margin-top: 10px; }
+    .ok-x { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: var(--text-sm); }
+    .ok-x--ok { color: var(--green-700); } .ok-x--no { color: var(--danger-600); }
+
+    /* Color */
+    .brand-sw { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--ink-200); background: #fff; }
+    .brand-sw__chip { height: 140px; padding: 18px; display: flex; align-items: flex-end; font-family: var(--font-display); font-weight: 800; font-size: var(--text-2xl); }
+    .brand-sw__body { padding: 16px 18px; font-size: var(--text-sm); }
+    .brand-sw__body strong { display: block; font-size: var(--text-base); }
+    .brand-sw__body .sg-code { margin-right: 6px; }
+    .brand-sw__body p { color: var(--ink-500); margin-top: 8px; }
+    .scale { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--ink-200); }
+    .scale div { height: 88px; padding: 10px; display: flex; flex-direction: column; justify-content: flex-end; font-size: 11px; line-height: 1.3; }
+    .scale b { font-size: 12px; }
+    .ratio { width: 100%; border-collapse: collapse; font-size: var(--text-sm); background: #fff; border: 1px solid var(--ink-200); border-radius: var(--radius-lg); overflow: hidden; }
+    .ratio th, .ratio td { padding: 12px 16px; text-align: left; border-top: 1px solid var(--ink-100); }
+    .ratio thead th { background: var(--ink-50); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-500); border-top: 0; }
+    .ratio .pair { display: inline-flex; align-items: center; justify-content: center; min-width: 88px; height: 34px; border-radius: 6px; font-weight: 700; padding: 0 10px; border: 1px solid var(--ink-200); }
+    .pass { color: var(--green-700); font-weight: 700; } .fail { color: var(--danger-600); font-weight: 700; } .large { color: var(--warning-700); font-weight: 700; }
+    .split { display: flex; height: 56px; border-radius: var(--radius-md); overflow: hidden; font-size: var(--text-xs); font-weight: 700; }
+    .split div { display: grid; place-items: center; }
+
+    /* Type */
+    .type-row { display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--ink-100); }
+    .type-row:first-child { border-top: 0; }
+    .type-row small { font-size: var(--text-xs); color: var(--ink-500); line-height: 1.5; }
+    .type-row small b { color: var(--ink-900); display: block; font-size: var(--text-sm); }
+    @media (max-width: 640px) { .type-row { grid-template-columns: 1fr; gap: 6px; } }
+    .font-card .big { font-size: 56px; line-height: 1; margin: 12px 0; color: var(--ink-900); }
+    .font-card p { font-size: var(--text-sm); color: var(--ink-500); }
+
+    /* Space / radius / shadow */
+    .space-row { display: flex; align-items: center; gap: 16px; font-size: var(--text-sm); padding: 6px 0; }
+    .space-row span:first-child { width: 90px; font-variant-numeric: tabular-nums; color: var(--ink-500); }
+    .space-row i { display: block; height: 16px; background: var(--leaf-500); border-radius: 3px; }
+    .shape { height: 96px; background: #fff; border: 1px solid var(--ink-200); display: grid; place-items: center; font-size: var(--text-sm); font-weight: 600; text-align: center; }
+
+    /* Icons */
+    .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+    .icon-cell { background: #fff; border: 1px solid var(--ink-200); border-radius: var(--radius-md); padding: 16px 8px 10px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-500); }
+    .icon-cell .ico { width: 24px; height: 24px; color: var(--ink-900); }
+
+    /* Components */
+    .demo-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .demo-row + .demo-row { margin-top: 14px; }
+    .state-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+    .state-table td, .state-table th { padding: 12px 0; border-top: 1px solid var(--ink-100); text-align: left; vertical-align: middle; }
+    .state-table th { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-500); border-top: 0; }
+    .state-table td:first-child { width: 34%; }
+    .old { color: var(--danger-600); text-decoration: line-through; font-weight: 700; }
+    .card-demo { max-width: 260px; }
+
+    /* Voice */
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .do-dont { grid-template-columns: 1fr; } }
+    .dd { border-radius: var(--radius-lg); padding: 20px; border: 1px solid; }
+    .dd--do { background: var(--green-50); border-color: var(--green-100); }
+    .dd--dont { background: var(--danger-50); border-color: #F6CACA; }
+    .dd h4 { font-family: var(--font-sans); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .dd--do h4 { color: var(--green-800); } .dd--dont h4 { color: var(--danger-600); }
+    .dd li { font-size: var(--text-sm); padding: 8px 0; border-top: 1px solid rgba(0,0,0,.06); }
+    .dd li:first-child { border-top: 0; }
+    .checklist li { display: flex; gap: 10px; padding: 10px 0; border-top: 1px solid var(--ink-100); font-size: var(--text-sm); }
+    .checklist li:first-child { border-top: 0; }
+    .checklist .ico { color: var(--green-700); margin-top: 2px; }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="sg-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <a href="index.html" class="logo" aria-label="Back to the proposal">
+      <svg viewBox="0 0 196 64" role="img" aria-hidden="true"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', 'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg>
+    </a>
+    <h1>Style Guide</h1>
+    <p>One visual language for the website, the shop POS screens, invoices and social posts, built from the three colors already in the GreenTech logo.</p>
+    <div class="sg-hero__meta"><a href="index.html" style="color:var(--leaf-500);font-weight:700">← Back to proposal</a><span>Version <b>1.0</b></span><span>Updated <b>31 Oct 2026</b></span><span>Tokens <b>assets/css/tokens.css</b></span></div>
+  </div>
+</header>
+
+<div class="container sg" id="main">
+  <nav class="sg-nav" aria-label="Sections">
+    <ol>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#color">Color</a></li>
+      <li><a href="#type">Typography</a></li>
+      <li><a href="#layout">Spacing &amp; shape</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#components">Components</a></li>
+      <li><a href="#commerce">Price &amp; stock</a></li>
+      <li><a href="#voice">Voice &amp; content</a></li>
+      <li><a href="#a11y">Accessibility</a></li>
+    </ol>
+  </nav>
+
+  <div>
+    <!-- ================= LOGO ================= -->
+    <section class="sg-sec" id="logo">
+      <h2>Logo</h2>
+      <p class="lead">The wordmark has two halves: <b>green</b> (growth, trust) and <b>tech</b> (energy, action), joined by a sprouting leaf. Always keep all three colors together on a light or deep-green background.</p>
+
+      <div class="sg-grid sg-grid--3">
+        <div><div class="logo-tile" style="background:#fff">
+          <span class="logo"><svg viewBox="0 0 196 64" role="img" aria-label="GreenTech logo on white"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span>
+        </div><p class="sg-label"><span class="ok-x ok-x--ok"><svg class="ico ico--sm"><use href="#i-check"/></svg>Primary</span> Full color on white. Use it in the header, on invoices and on receipts.</p></div>
+        <div><div class="logo-tile logo-tile--dark">
+          <span class="logo"><svg viewBox="0 0 196 64" role="img" aria-label="GreenTech logo on deep green"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span>
+        </div><p class="sg-label"><span class="ok-x ok-x--ok"><svg class="ico ico--sm"><use href="#i-check"/></svg>Reversed</span> Full color on Night <span class="sg-code">#14123A</span>. The logo is at its most vivid here. Use it in the hero, the footer and dark banners.</p></div>
+        <div><div class="logo-tile logo-tile--brand">
+          <span class="logo logo--mono"><svg viewBox="0 0 196 64" role="img" aria-label="GreenTech logo in white"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span>
+        </div><p class="sg-label"><span class="ok-x ok-x--ok"><svg class="ico ico--sm"><use href="#i-check"/></svg>Mono</span> All white. Use it on photos, brand-green fills and single-color prints such as stamps and engraving.</p></div>
+      </div>
+
+      <h3>Clear space &amp; minimum size</h3>
+      <div class="sg-grid sg-grid--2">
+        <div class="logo-tile logo-tile--space">
+          <span class="logo"><svg viewBox="0 0 196 64" role="img" aria-label="Logo with clear-space guide"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span>
+        </div>
+        <div class="sg-card">
+          <ul class="checklist">
+            <li><svg class="ico"><use href="#i-check"/></svg><span><b>Clear space</b> = the height of the letter "e" on every side. Keep text, edges and other logos out of it.</span></li>
+            <li><svg class="ico"><use href="#i-check"/></svg><span><b>Minimum width:</b> 96px on screen, 25mm in print. Below that, use the leaf mark alone.</span></li>
+            <li><svg class="ico"><use href="#i-check"/></svg><span><b>Favicon / app icon:</b> the leaf sprout on Green 900. See <span class="sg-code">assets/img/favicon.svg</span>.</span></li>
+            <li><svg class="ico"><use href="#i-info"/></svg><span>The logo in this prototype is a redrawn vector. <b>Ask GreenTech for the original AI/SVG/EPS file</b> before launch.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Don't</h3>
+      <div class="sg-grid sg-grid--4">
+        <div class="dont"><div class="logo-tile" style="background:#253460;border-color:#253460"><span class="logo"><svg viewBox="0 0 196 64" role="img" aria-label="Logo on navy, incorrect"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span></div><span class="dont__x"><svg class="ico"><use href="#i-x"/></svg></span><p>Place it on a mid-tone navy or blue, as the current site header does. The green turns muddy. Use Night instead.</p></div>
+        <div class="dont"><div class="logo-tile" style="background:#fff"><span class="logo" style="transform:scaleX(1.35)"><svg viewBox="0 0 196 64" role="img" aria-label="Stretched logo, incorrect"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span></div><span class="dont__x"><svg class="ico"><use href="#i-x"/></svg></span><p>Stretch, squash or rotate it.</p></div>
+        <div class="dont"><div class="logo-tile" style="background:#fff"><span class="logo"><svg viewBox="0 0 196 64" role="img" aria-label="Recolored logo, incorrect"><path d="M103 41C105 34 106.5 28 109 22" fill="none" stroke="#7B1FA2" stroke-width="3.4" stroke-linecap="round"/><path fill="#E91E63" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path fill="#E91E63" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan fill="#7B1FA2" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan fill="#1E88E5" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span></div><span class="dont__x"><svg class="ico"><use href="#i-x"/></svg></span><p>Recolor it for a campaign or festival. Change the artwork around it instead.</p></div>
+        <div class="dont"><div class="logo-tile" style="background:var(--orange-500);border-color:var(--orange-500)"><span class="logo"><svg viewBox="0 0 196 64" role="img" aria-label="Logo on orange, incorrect"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span></div><span class="dont__x"><svg class="ico"><use href="#i-x"/></svg></span><p>Place it on orange or a busy photo, where "tech" disappears.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= COLOR ================= -->
+    <section class="sg-sec" id="color">
+      <h2>Color</h2>
+      <p class="lead">These three brand colors are sampled straight from the logo file. Each has a darker working shade so text and buttons pass WCAG AA contrast.</p>
+
+      <div class="sg-grid sg-grid--3">
+        <div class="brand-sw">
+          <div class="brand-sw__chip" style="background:var(--green-500);color:var(--ink-900)">Green</div>
+          <div class="brand-sw__body"><strong>Brand Green</strong><span class="sg-code">#00A651</span><span class="sg-code">--green-500</span><p>Logo, icons, large headings, fills. For text and buttons, use <b>Green 700 <span class="sg-code">#007A3D</span></b>.</p></div>
+        </div>
+        <div class="brand-sw">
+          <div class="brand-sw__chip" style="background:var(--orange-500);color:var(--ink-900)">Orange</div>
+          <div class="brand-sw__body"><strong>Tech Orange</strong><span class="sg-code">#F57F20</span><span class="sg-code">--orange-500</span><p>Urgency: discounts, deals, PC Builder, ratings. Always put <b>dark ink</b> text on it, never white.</p></div>
+        </div>
+        <div class="brand-sw">
+          <div class="brand-sw__chip" style="background:var(--leaf-500);color:var(--ink-900)">Leaf</div>
+          <div class="brand-sw__body"><strong>Leaf</strong><span class="sg-code">#8FC73E</span><span class="sg-code">--leaf-500</span><p>Highlights on dark green, success moments, soft section backgrounds (Leaf 50).</p></div>
+        </div>
+      </div>
+
+      <h3>Supporting colors <small class="sg-label" style="margin:0 0 0 8px">website only, the logo stays the same</small></h3>
+      <p class="sg-label" style="max-width:68ch;margin:-6px 0 14px">On their own, the logo colors feel flat across a whole website. Adding one cool, saturated color gives the green and orange something to stand against, so pages feel alive but still calm. Use it for dark surfaces, links, focus and section accents. Never put it inside the logo.</p>
+      <div class="sg-grid sg-grid--2">
+        <div class="brand-sw">
+          <div class="brand-sw__chip" style="background:var(--indigo-600);color:#fff">Indigo</div>
+          <div class="brand-sw__body"><strong>Tech Indigo</strong><span class="sg-code">#4B3FE0</span><span class="sg-code">--indigo-600</span><p>Links, secondary buttons, highlights, charts. White text on it passes AA (6.8:1).</p></div>
+        </div>
+        <div class="brand-sw">
+          <div class="brand-sw__chip" style="background:var(--night-900);color:#fff">Night</div>
+          <div class="brand-sw__body"><strong>Night</strong><span class="sg-code">#14123A</span><span class="sg-code">--night-900</span><p>Hero, footer and dark sections. Green, orange and leaf are at their most vivid on it.</p></div>
+        </div>
+      </div>
+      <div class="support">
+        <div class="support__demo">
+          <span class="logo"><svg viewBox="0 0 196 64" role="img" aria-label="GreenTech logo on Night"><path class="lg-s" d="M103 41C105 34 106.5 28 109 22" fill="none" stroke-width="3.4" stroke-linecap="round"/><path class="lg-l" d="M108.5 24C100 22.5 92.5 15.5 89.5 4 100 6 107 13 108.5 24Z"/><path class="lg-l" d="M109.5 22.5C113.5 10 125.5 2 146 1 141 13.5 129 21.5 109.5 22.5Z"/><text y="58" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="40"><tspan class="lg-g" x="0" textLength="106" lengthAdjust="spacingAndGlyphs">green</tspan><tspan class="lg-t" x="109" textLength="84" lengthAdjust="spacingAndGlyphs">tech</tspan></text></svg></span>
+          <h4>Genuine parts. <em>Ready today.</em></h4>
+          <div class="row"><span class="pill" style="background:var(--orange-500);color:var(--ink-900)">-7% today</span><span class="pill" style="background:rgba(143,199,62,.18);color:var(--leaf-500)">● 3 in stock</span><span class="pill" style="background:rgba(169,162,255,.18);color:var(--indigo-300)">Compare</span></div>
+        </div>
+        <div class="scale" style="grid-template-columns:repeat(3,1fr)">
+          <div style="background:var(--indigo-50)"><b>50</b>#EFEEFF</div>
+          <div style="background:var(--indigo-100)"><b>100</b>#DEDBFF</div>
+          <div style="background:var(--indigo-300)"><b>300</b>#A9A2FF</div>
+          <div style="background:var(--indigo-500);color:#fff"><b>500</b>#6656FF</div>
+          <div style="background:var(--indigo-600);color:#fff"><b>600</b>#4B3FE0</div>
+          <div style="background:var(--indigo-700);color:#fff"><b>700</b>#3A30B8</div>
+          <div style="background:var(--mist)"><b>Mist</b>#F6F5FF</div>
+          <div style="background:var(--night-800);color:#fff"><b>Night 800</b>#1F1B52</div>
+          <div style="background:var(--night-900);color:#fff"><b>Night 900</b>#14123A</div>
+        </div>
+      </div>
+
+      <h3>Proportion</h3>
+      <div class="split" aria-label="55% neutral and mist, 25% green, 12% indigo and night, 8% orange">
+        <div style="flex:55;background:#fff;border:1px solid var(--ink-200);border-right:0;border-radius:10px 0 0 10px">55% white &amp; mist</div>
+        <div style="flex:25;background:var(--green-700);color:#fff">25% green</div>
+        <div style="flex:12;background:var(--indigo-600);color:#fff">12% indigo</div>
+        <div style="flex:8;background:var(--orange-500);color:var(--ink-900)">8%</div>
+      </div>
+      <p class="sg-label">Products are the hero, so pages stay mostly light. Green carries the brand and the main "buy" actions. Indigo and Night add depth and rhythm between sections. Orange only appears where something is time-sensitive or worth money.</p>
+
+      <h3>Tonal scales</h3>
+      <div class="scale" style="margin-bottom:10px">
+        <div style="background:var(--green-50)"><b>50</b>#E8F7EF</div>
+        <div style="background:var(--green-100)"><b>100</b>#C6EBD6</div>
+        <div style="background:var(--green-200)"><b>200</b>#94D9B2</div>
+        <div style="background:var(--green-500)"><b>500</b>#00A651</div>
+        <div style="background:var(--green-600);color:#fff"><b>600</b>#008F46</div>
+        <div style="background:var(--green-700);color:#fff"><b>700</b>#007A3D</div>
+        <div style="background:var(--green-800);color:#fff"><b>800</b>#005C2E</div>
+        <div style="background:var(--green-900);color:#fff"><b>900</b>#0B3B24</div>
+        <div style="background:var(--green-950);color:#fff"><b>950</b>#062417</div>
+      </div>
+      <div class="scale" style="margin-bottom:10px">
+        <div style="background:var(--orange-50)"><b>50</b>#FEF2E8</div>
+        <div style="background:var(--orange-100)"><b>100</b>#FDDCC1</div>
+        <div style="background:var(--orange-500)"><b>500</b>#F57F20</div>
+        <div style="background:var(--orange-600)"><b>600</b>#DE6A0C</div>
+        <div style="background:var(--orange-700);color:#fff"><b>700</b>#B84E08</div>
+        <div style="background:var(--leaf-50)"><b>Leaf 50</b>#F2F9E8</div>
+        <div style="background:var(--leaf-100)"><b>Leaf 100</b>#E1F1CB</div>
+        <div style="background:var(--leaf-500)"><b>Leaf 500</b>#8FC73E</div>
+        <div style="background:var(--leaf-700);color:#fff"><b>Leaf 700</b>#5B8A1E</div>
+      </div>
+      <div class="scale" style="margin-bottom:10px">
+        <div style="background:var(--ink-50)"><b>Ink 50</b>#F6F8F7</div>
+        <div style="background:var(--ink-100)"><b>100</b>#EEF2EF</div>
+        <div style="background:var(--ink-200)"><b>200</b>#E1E6E3</div>
+        <div style="background:var(--ink-300)"><b>300</b>#C5CDC8</div>
+        <div style="background:var(--ink-400);color:#fff"><b>400</b>#8A958F</div>
+        <div style="background:var(--ink-500);color:#fff"><b>500</b>#5E6B64</div>
+        <div style="background:var(--ink-700);color:#fff"><b>700</b>#334139</div>
+        <div style="background:var(--ink-900);color:#fff"><b>900</b>#0F1A14</div>
+      </div>
+      <div class="scale">
+        <div style="background:var(--danger-50)"><b>Danger 50</b>#FDECEC</div>
+        <div style="background:var(--danger-600);color:#fff"><b>Danger 600</b>#C62828</div>
+        <div style="background:var(--warning-50)"><b>Warning 50</b>#FFF4E0</div>
+        <div style="background:var(--warning-700);color:#fff"><b>Warning 700</b>#8A5300</div>
+        <div style="background:var(--info-50)"><b>Info 50</b>#E8F2FB</div>
+        <div style="background:var(--info-700);color:#fff"><b>Info 700</b>#1D5F99</div>
+      </div>
+      <p class="sg-label">Neutrals carry a slight green tint so grey UI feels on-brand next to the logo.</p>
+
+      <h3>Contrast rules</h3>
+      <table class="ratio">
+        <thead><tr><th>Pair</th><th>Ratio</th><th>Use for</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pair" style="background:#fff;color:var(--ink-900)">Ink 900</span></td><td class="pass">17.8 : 1</td><td>Body text, prices, headings</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:var(--ink-500)">Ink 500</span></td><td class="pass">5.6 : 1</td><td>Secondary text. This is the lightest grey allowed for text.</td></tr>
+          <tr><td><span class="pair" style="background:var(--green-700);color:#fff">White</span></td><td class="pass">5.0 : 1</td><td>Primary buttons, links (Green 700)</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:var(--green-500)">Green 500</span></td><td class="large">3.2 : 1</td><td>Large text (24px+) and icons only</td></tr>
+          <tr><td><span class="pair" style="background:var(--orange-500);color:var(--ink-900)">Ink 900</span></td><td class="pass">6.7 : 1</td><td>Sale badges, accent buttons</td></tr>
+          <tr><td><span class="pair" style="background:var(--orange-500);color:#fff">White</span></td><td class="fail">2.6 : 1</td><td><b>Never.</b> White text on orange fails.</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:var(--orange-700)">Orange 700</span></td><td class="pass">5.1 : 1</td><td>"Save ৳3,200", deal links</td></tr>
+          <tr><td><span class="pair" style="background:var(--green-900);color:var(--leaf-500)">Leaf 500</span></td><td class="pass">6.3 : 1</td><td>Highlights on dark green</td></tr>
+          <tr><td><span class="pair" style="background:var(--indigo-600);color:#fff">White</span></td><td class="pass">6.8 : 1</td><td>Indigo buttons, tags</td></tr>
+          <tr><td><span class="pair" style="background:var(--night-900);color:var(--green-500)">Green 500</span></td><td class="pass">5.6 : 1</td><td>Logo and green accents on Night</td></tr>
+          <tr><td><span class="pair" style="background:var(--night-900);color:var(--indigo-300)">Indigo 300</span></td><td class="pass">7.9 : 1</td><td>Links and keywords on Night</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ================= TYPE ================= -->
+    <section class="sg-sec" id="type">
+      <h2>Typography</h2>
+      <p class="lead">Three free Google Fonts. Both Latin families sit comfortably beside Hind Siliguri, so Bangla and English can mix in one sentence without the line height jumping.</p>
+      <div class="sg-grid sg-grid--3">
+        <div class="sg-card font-card"><span class="eyebrow">Display</span><div class="big" style="font-family:var(--font-display);font-weight:800">Aa</div><b>Plus Jakarta Sans</b><p>700 / 800: headings, prices, hero lines</p></div>
+        <div class="sg-card font-card"><span class="eyebrow">Text &amp; UI</span><div class="big" style="font-family:var(--font-sans);font-weight:600">Aa</div><b>Inter</b><p>400 / 500 / 600 / 700: body, buttons, specs, tables</p></div>
+        <div class="sg-card font-card"><span class="eyebrow">বাংলা</span><div class="big" lang="bn" style="font-family:var(--font-bn);font-weight:600">অআ</div><b>Hind Siliguri</b><p>400–700: every Bangla string, as live text, never as an image</p></div>
+      </div>
+
+      <h3>Scale</h3>
+      <div class="sg-card">
+        <div class="type-row"><small><b>Hero</b>48 / 1.2 · Jakarta 800</small><div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-5xl);line-height:1.1;letter-spacing:-.02em">Ready today.</div></div>
+        <div class="type-row"><small><b>H1 · page</b>36 / 1.2 · Jakarta 800</small><div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-4xl);line-height:1.2">RTX 3060 Ultra W OC</div></div>
+        <div class="type-row"><small><b>H2 · section</b>30 / 1.2 · Jakarta 700</small><div style="font-family:var(--font-display);font-weight:700;font-size:var(--text-3xl)">Today's deals</div></div>
+        <div class="type-row"><small><b>H3</b>24 / 1.2 · Jakarta 700</small><div style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl)">Shop by category</div></div>
+        <div class="type-row"><small><b>Price</b>20–36 · Jakarta 800 · tabular</small><div class="price"><span class="price__now">৳1,25,000</span><s class="price__was">৳1,32,000</s></div></div>
+        <div class="type-row"><small><b>Body</b>16 / 1.6 · Inter 400</small><p>Live stock from our four outlets. Order online and collect in an hour.</p></div>
+        <div class="type-row"><small><b>Bangla body</b>16 / 1.6 · Hind Siliguri</small><p lang="bn" style="font-family:var(--font-bn)">সুলভ মূল্যে সেরা কম্পোনেন্টস — শুধুমাত্র GreenTech-এ</p></div>
+        <div class="type-row"><small><b>Small / UI</b>14 / 1.4 · Inter 600</small><p style="font-size:var(--text-sm);font-weight:600">Add to cart · Compare · In stock</p></div>
+        <div class="type-row"><small><b>Caption</b>12 / 1.5 · Inter 500</small><p style="font-size:var(--text-xs);color:var(--ink-500)">Updated 2 min ago · Prices include VAT</p></div>
+      </div>
+      <p class="sg-label">Minimum text size is 14px, and 12px only for captions. The current site uses 11px on product pages, which is too small.</p>
+    </section>
+
+    <!-- ================= LAYOUT ================= -->
+    <section class="sg-sec" id="layout">
+      <h2>Spacing &amp; shape</h2>
+      <p class="lead">A 4px grid, a 1280px max content width, and 16px side gutters on mobile (24px on desktop).</p>
+      <div class="sg-grid sg-grid--2">
+        <div class="sg-card">
+          <div class="space-row"><span>4 · space-1</span><i style="width:4px"></i></div>
+          <div class="space-row"><span>8 · space-2</span><i style="width:8px"></i></div>
+          <div class="space-row"><span>12 · space-3</span><i style="width:12px"></i></div>
+          <div class="space-row"><span>16 · space-4</span><i style="width:16px"></i></div>
+          <div class="space-row"><span>24 · space-6</span><i style="width:24px"></i></div>
+          <div class="space-row"><span>32 · space-8</span><i style="width:32px"></i></div>
+          <div class="space-row"><span>48 · space-12</span><i style="width:48px"></i></div>
+          <div class="space-row"><span>64 · space-16</span><i style="width:64px"></i></div>
+        </div>
+        <div>
+          <div class="sg-grid sg-grid--2">
+            <div><div class="shape" style="border-radius:var(--radius-sm)">6px<br><small>badges, small buttons</small></div></div>
+            <div><div class="shape" style="border-radius:var(--radius-md)">10px<br><small>buttons, inputs</small></div></div>
+            <div><div class="shape" style="border-radius:var(--radius-lg)">14px<br><small>cards, panels</small></div></div>
+            <div><div class="shape" style="border-radius:var(--radius-xl)">20px<br><small>hero, banners</small></div></div>
+            <div><div class="shape" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:0">shadow-sm<br><small>rest</small></div></div>
+            <div><div class="shape" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-md);border:0">shadow-md<br><small>hover</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ICONS ================= -->
+    <section class="sg-sec" id="icons">
+      <h2>Icons</h2>
+      <p class="lead">Outline icons on a 24px grid with a 1.75px stroke and round joins, drawn in <span class="sg-code">currentColor</span>. Category icons sit in a Green 50 tile and turn Green 700 on hover.</p>
+      <div class="icon-grid" id="icon-grid"></div>
+    </section>
+
+    <!-- ================= COMPONENTS ================= -->
+    <section class="sg-sec" id="components">
+      <h2>Components</h2>
+      <p class="lead">One primary action per view. On a product page that's <b>Buy now</b> (green). <b>Add to cart</b> is secondary (outline). Orange is reserved for deal and pre-order actions.</p>
+
+      <h3>Buttons</h3>
+      <div class="sg-card">
+        <div class="demo-row">
+          <button class="btn btn--primary">Primary · Buy now</button>
+          <button class="btn btn--accent">Accent · Pre-order</button>
+          <button class="btn btn--outline">Secondary · Add to cart</button>
+          <button class="btn btn--ghost">Ghost · View all</button>
+          <button class="btn" disabled>Disabled</button>
+        </div>
+        <div class="demo-row">
+          <button class="btn btn--primary btn--lg"><svg class="ico"><use href="#i-cart"/></svg>Large 52px</button>
+          <button class="btn btn--primary">Default 44px</button>
+          <button class="btn btn--primary btn--sm">Small 36px</button>
+          <button class="icon-btn" aria-label="Wishlist"><svg class="ico"><use href="#i-heart"/></svg></button>
+          <button class="icon-btn" aria-pressed="true" aria-label="Saved"><svg class="ico"><use href="#i-heart"/></svg></button>
+          <button class="icon-btn" aria-label="Compare"><svg class="ico"><use href="#i-compare"/></svg></button>
+        </div>
+        <p class="sg-label">Minimum touch target is 36px, and 44px for anything inside the checkout flow.</p>
+      </div>
+
+      <h3>Inputs</h3>
+      <div class="sg-card">
+        <div class="sg-grid sg-grid--3">
+          <div class="field"><label for="f1">Mobile number</label><input id="f1" class="input" placeholder="01XXX-XXXXXX"><span class="field__hint">We'll SMS your order updates</span></div>
+          <div class="field"><label for="f2">District</label><select id="f2" class="select"><option>Chattogram</option><option>Dhaka</option></select></div>
+          <div class="field"><label for="f3">Email</label><input id="f3" class="input is-error" value="rahat@" aria-invalid="true"><span class="field__hint is-error">Enter a full email, e.g. name@gmail.com</span></div>
+        </div>
+      </div>
+
+      <h3>Badges &amp; chips</h3>
+      <div class="sg-card">
+        <div class="demo-row">
+          <span class="badge badge--sale">-7%</span>
+          <span class="badge badge--new">New</span>
+          <span class="badge badge--hot">Best seller</span>
+          <span class="badge badge--soft">Pre-order</span>
+          <span class="badge badge--leaf">Installation incl.</span>
+        </div>
+        <div class="demo-row">
+          <span class="chip chip--green"><svg class="ico"><use href="#i-shield"/></svg>3-year warranty</span>
+          <span class="chip"><svg class="ico"><use href="#i-check"/></svg>100% genuine</span>
+          <span class="chip chip--orange"><svg class="ico"><use href="#i-wrench"/></svg>Free installation</span>
+        </div>
+      </div>
+
+      <h3>Product card</h3>
+      <div class="sg-grid sg-grid--2" style="align-items:start">
+        <article class="p-card card-demo">
+          <a href="#" class="p-card__media tint-green" aria-label="Colorful iGame RTX 3060 Ultra W OC 12GB"><svg class="ico"><use href="#i-gpu"/></svg></a>
+          <div class="p-card__badges"><span class="badge badge--sale">-7%</span></div>
+          <div class="p-card__quick"><button class="icon-btn" data-wish aria-pressed="false" aria-label="Add to wishlist"><svg class="ico"><use href="#i-heart"/></svg></button><button class="icon-btn" data-compare aria-label="Add to compare"><svg class="ico"><use href="#i-compare"/></svg></button></div>
+          <div class="p-card__body">
+            <p class="p-card__brand">Colorful</p>
+            <h3 class="p-card__title"><a href="#">iGame GeForce RTX 3060 Ultra W OC 12GB GDDR6</a></h3>
+            <ul class="p-card__specs"><li>12GB GDDR6</li><li>192-bit</li></ul>
+            <div class="price"><span class="price__now">৳43,000</span><s class="price__was">৳46,200</s></div>
+            <p class="stock stock--in">In stock · 2 outlets</p>
+          </div>
+          <div class="p-card__foot"><button class="btn btn--primary btn--sm" data-add-to-cart data-name="RTX 3060 Ultra W OC"><svg class="ico ico--sm"><use href="#i-cart"/></svg>Add to cart</button></div>
+        </article>
+        <div class="sg-card">
+          <ul class="checklist">
+            <li><svg class="ico"><use href="#i-check"/></svg><span><b>Brand above the title.</b> Drop the brand from the title so the model shows within 2 lines.</span></li>
+            <li><svg class="ico"><use href="#i-check"/></svg><span><b>Two spec pills max.</b> Show the facts buyers filter by (capacity, speed, socket).</span></li>
+            <li><svg class="ico"><use href="#i-check"/></svg><span><b>Stock is always visible</b> and comes from inventory, never typed by hand.</span></li>
+            <li><svg class="ico"><use href="#i-check"/></svg><span>Wishlist and compare sit on the image, so the card stays one tap to buy.</span></li>
+            <li><svg class="ico"><use href="#i-check"/></svg><span>Square 1:1 photos on a white background, at least 800px.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMMERCE ================= -->
+    <section class="sg-sec" id="commerce">
+      <h2>Price &amp; stock states</h2>
+      <p class="lead">The current site shows <span class="old">৳0.00</span> for anything without a price. Every product must be in exactly one of these states, and the shop POS sets it automatically.</p>
+      <div class="sg-card">
+        <table class="state-table">
+          <thead><tr><th>State</th><th>Price shows</th><th>Button</th></tr></thead>
+          <tbody>
+            <tr><td><span class="stock stock--in">In stock · 2 outlets</span></td><td><div class="price"><span class="price__now">৳43,000</span><s class="price__was">৳46,200</s></div></td><td><button class="btn btn--primary btn--sm">Add to cart</button></td></tr>
+            <tr><td><span class="stock stock--low">Only 2 left</span><br><small class="field__hint">When stock is ≤ 2</small></td><td><div class="price"><span class="price__now">৳41,000</span></div></td><td><button class="btn btn--primary btn--sm">Add to cart</button></td></tr>
+            <tr><td><span class="stock stock--pre">Pre-order · ~10 days</span></td><td><div class="price"><span class="price__now">৳36,500</span></div></td><td><button class="btn btn--accent btn--sm">Pre-order now</button></td></tr>
+            <tr><td><span class="stock stock--call">Price changes daily</span><br><small class="field__hint">Volatile items (CPUs, GPUs)</small></td><td><span class="price__call">Call for price</span></td><td><button class="btn btn--outline btn--sm"><svg class="ico ico--sm"><use href="#i-phone"/></svg>Call</button></td></tr>
+            <tr><td><span class="stock stock--out">Out of stock</span></td><td><div class="price"><span class="price__now" style="color:var(--ink-500)">৳5,989</span></div></td><td><button class="btn btn--outline btn--sm"><svg class="ico ico--sm"><use href="#i-bell"/></svg>Notify me</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Number formats</h3>
+      <div class="sg-grid sg-grid--3">
+        <div class="sg-card"><span class="eyebrow">Money</span><p style="font-family:var(--font-display);font-weight:800;font-size:var(--text-2xl);margin:6px 0" class="num">৳1,25,000</p><p class="sg-label">Taka sign first, no space, lakh grouping (<span class="sg-code">toLocaleString('en-IN')</span>), no ".00".</p></div>
+        <div class="sg-card"><span class="eyebrow">Phone</span><p style="font-family:var(--font-display);font-weight:800;font-size:var(--text-2xl);margin:6px 0" class="num">01729-080310</p><p class="sg-label">Display 5-6 digit split. Link as <span class="sg-code">tel:+8801729080310</span> with no spaces.</p></div>
+        <div class="sg-card"><span class="eyebrow">EMI</span><p style="font-family:var(--font-display);font-weight:800;font-size:var(--text-2xl);margin:6px 0" class="num">৳3,584/mo</p><p class="sg-label">Always round up and show the number of months next to it.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= VOICE ================= -->
+    <section class="sg-sec" id="voice">
+      <h2>Voice &amp; content</h2>
+      <p class="lead">GreenTech sounds like the helpful technician at the counter: specific, honest about stock, and never pushy. English is the default for UI and specs. Bangla is used for warm, human moments: offers, help and notices.</p>
+      <div class="do-dont">
+        <div class="dd dd--do">
+          <h4><svg class="ico ico--sm"><use href="#i-check"/></svg>Do</h4>
+          <ul>
+            <li>"In stock at Johura Tower. Collect in 1 hour."</li>
+            <li>"Needs a 550W+ power supply."</li>
+            <li>"Call for price. GPU prices change daily."</li>
+            <li lang="bn">"অর্ডার কনফার্ম হয়েছে! আমরা ১ ঘণ্টার মধ্যে কল করবো।"</li>
+            <li>One hotline everywhere: 01729-080310</li>
+          </ul>
+        </div>
+        <div class="dd dd--dont">
+          <h4><svg class="ico ico--sm"><use href="#i-x"/></svg>Don't</h4>
+          <ul>
+            <li>"৳0.00" or "Ex Tax: ৳43,000.00"</li>
+            <li>"Best Trusted Retail Computer Store in Bangladesh" (an unprovable claim)</li>
+            <li>A yellow-highlighted notice saying online orders aren't accepted, next to a Buy button</li>
+            <li>Bangla text baked into banner images</li>
+            <li>Twelve phone numbers on one page</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= A11Y ================= -->
+    <section class="sg-sec" id="a11y">
+      <h2>Accessibility checklist</h2>
+      <p class="lead">Every page and POS screen must pass these checks before it ships.</p>
+      <div class="sg-card">
+        <ul class="checklist">
+          <li><svg class="ico"><use href="#i-check"/></svg><span>Text contrast is 4.5:1 or higher (3:1 for 24px+ text and icons). Use the pairs in the <a href="#color" style="color:var(--green-700);font-weight:600">contrast table</a>.</span></li>
+          <li><svg class="ico"><use href="#i-check"/></svg><span>Every image has <span class="sg-code">alt</span> text, and banners carry their message as live HTML text.</span></li>
+          <li><svg class="ico"><use href="#i-check"/></svg><span>A visible focus ring (3px orange) on every interactive element. Everything works by keyboard.</span></li>
+          <li><svg class="ico"><use href="#i-check"/></svg><span>One <span class="sg-code">&lt;h1&gt;</span> per page, headings in order, and <span class="sg-code">lang="bn"</span> on Bangla text.</span></li>
+          <li><svg class="ico"><use href="#i-check"/></svg><span>Stock and sale states use text plus color, never color alone.</span></li>
+          <li><svg class="ico"><use href="#i-check"/></svg><span>Layouts work at 360px wide with no horizontal scroll, and tap targets are 36px or larger.</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><svg class="ico"><use href="#i-check"/></svg><span data-toast-msg></span><a href="#">View cart</a></div>
+
+<nav class="proto-nav" aria-label="Pages">
+  <a href="index.html">← Proposal</a><a href="style-guide.html" aria-current="page">Style guide</a>
+</nav>
+
+<script>
+  /* Build the icon grid from the injected sprite */
+  document.addEventListener('DOMContentLoaded', function () {
+    var grid = document.getElementById('icon-grid');
+    document.querySelectorAll('symbol[id^="i-"]').forEach(function (s) {
+      var id = s.id.slice(2);
+      grid.insertAdjacentHTML('beforeend', '<div class="icon-cell"><svg class="ico"><use href="#i-' + id + '"/></svg>' + id + '</div>');
+    });
+  });
+</script>
+</body>
+</html>

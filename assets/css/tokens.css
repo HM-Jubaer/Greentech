@@ -1,0 +1,128 @@
+/* =========================================================
+   GreenTech Design Tokens  ·  v1.0
+   Source of truth for color, type, spacing, radius, shadow.
+   Brand colors are sampled from the official logo PNG:
+     green  #00A651 · orange #F57F20 · leaf #8FC73E
+   ========================================================= */
+
+:root {
+  /* ---- Brand: Green (from "green" wordmark) ---- */
+  --green-50:  #E8F7EF;
+  --green-100: #C6EBD6;
+  --green-200: #94D9B2;
+  --green-500: #00A651; /* logo — large text, icons, fills only (3.2:1 on white) */
+  --green-600: #008F46;
+  --green-700: #007A3D; /* text + primary buttons (5.0:1 on white) */
+  --green-800: #005C2E;
+  --green-900: #0B3B24; /* dark surfaces */
+  --green-950: #062417;
+
+  /* ---- Brand: Orange (from "tech" wordmark) ---- */
+  --orange-50:  #FEF2E8;
+  --orange-100: #FDDCC1;
+  --orange-500: #F57F20; /* logo — fills with INK text only (6.7:1) */
+  --orange-600: #DE6A0C;
+  --orange-700: #B84E08; /* orange text on white (5.1:1) */
+
+  /* ---- Brand: Leaf (from the sprout) ---- */
+  --leaf-50:  #F2F9E8;
+  --leaf-100: #E1F1CB;
+  --leaf-500: #8FC73E; /* decorative; leaf text on green-900 = 6.3:1 */
+  --leaf-700: #5B8A1E;
+
+  /* ---- Supporting: Indigo + Night (website only — the logo is unchanged) ----
+     Cool, saturated counterpart to green/orange: keeps pages lively but calm.
+     Logo on Night: green 5.6:1, orange 7.6:1, leaf 8.8:1. */
+  --indigo-50:  #EFEEFF;
+  --indigo-100: #DEDBFF;
+  --indigo-300: #A9A2FF; /* text/links on Night (7.9:1) */
+  --indigo-500: #6656FF;
+  --indigo-600: #4B3FE0; /* supporting color — white text 6.8:1 */
+  --indigo-700: #3A30B8;
+  --night-800:  #1F1B52;
+  --night-900:  #14123A; /* dark surfaces */
+  --night-950:  #0C0A26;
+  --mist:       #F6F5FF; /* soothing light section background */
+
+  /* ---- Neutrals (green-tinted ink) ---- */
+  --ink-900: #0F1A14; /* 17.8:1 on white */
+  --ink-700: #334139;
+  --ink-500: #5E6B64; /* 5.6:1 on white — min for secondary text */
+  --ink-400: #8A958F; /* placeholders, disabled */
+  --ink-300: #C5CDC8;
+  --ink-200: #E1E6E3; /* borders */
+  --ink-100: #EEF2EF;
+  --ink-50:  #F6F8F7; /* page background */
+  --white:   #FFFFFF;
+
+  /* ---- Feedback ---- */
+  --danger-600:  #C62828; --danger-50:  #FDECEC;
+  --warning-700: #8A5300; --warning-50: #FFF4E0;
+  --info-700:    #1D5F99; --info-50:    #E8F2FB;
+
+  /* ---- Semantic aliases (use these in components) ---- */
+  --color-bg:             var(--ink-50);
+  --color-surface:        var(--white);
+  --color-surface-muted:  var(--ink-100);
+  --color-text:           var(--ink-900);
+  --color-text-muted:     var(--ink-500);
+  --color-border:         var(--ink-200);
+  --color-primary:        var(--green-700);
+  --color-primary-hover:  var(--green-800);
+  --color-brand:          var(--green-500);
+  --color-accent:         var(--orange-500);
+  --color-accent-hover:   var(--orange-600);
+  --color-accent-text:    var(--orange-700);
+  --color-focus:          var(--orange-500);
+  --color-dark:           var(--green-900);
+  --color-support:        var(--indigo-600);
+  --color-night:          var(--night-900);
+
+  /* ---- Typography ---- */
+  --font-display: "Plus Jakarta Sans", "Hind Siliguri", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans:    "Inter", "Hind Siliguri", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-bn:      "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+
+  --text-xs:   0.75rem;   /* 12 — legal, meta */
+  --text-sm:   0.875rem;  /* 14 — UI, card text */
+  --text-base: 1rem;      /* 16 — body */
+  --text-lg:   1.125rem;  /* 18 — lead */
+  --text-xl:   1.25rem;   /* 20 — card price, h4 */
+  --text-2xl:  1.5rem;    /* 24 — h3 */
+  --text-3xl:  1.875rem;  /* 30 — h2 */
+  --text-4xl:  2.25rem;   /* 36 — h1 (page) */
+  --text-5xl:  3rem;      /* 48 — hero */
+
+  --leading-tight: 1.2;
+  --leading-snug:  1.35;
+  --leading-body:  1.6;
+
+  /* ---- Spacing (4px grid) ---- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 1px 2px rgba(15, 26, 20, .06), 0 1px 3px rgba(15, 26, 20, .08);
+  --shadow-md: 0 4px 12px rgba(15, 26, 20, .08), 0 2px 4px rgba(15, 26, 20, .05);
+  --shadow-lg: 0 16px 40px rgba(15, 26, 20, .14);
+
+  /* ---- Layout ---- */
+  --container: 1280px;
+  --gutter: 16px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur: 180ms;
+}
+
+@media (min-width: 900px) {
+  :root { --gutter: 24px; }
+}

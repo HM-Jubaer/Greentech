@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreenTech Website Audit</title>
+  <meta name="description" content="Detailed audit of greentech.com.bd: what stops the website from selling online, with evidence and quick fixes.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <style>
+    body { margin: 0; font: 16px/1.65 system-ui, -apple-system, "Segoe UI", "Hind Siliguri", sans-serif; color: #1a1a1a; background: #fff; }
+    main { max-width: 820px; margin: 0 auto; padding: 24px 16px 64px; }
+    h1 { font-size: 1.9rem; line-height: 1.25; margin: 8px 0 4px; }
+    h2 { font-size: 1.35rem; margin: 44px 0 10px; padding-top: 16px; border-top: 1px solid #ddd; }
+    h3 { font-size: 1.05rem; margin: 26px 0 6px; }
+    a { color: #3A30B8; }
+    img { display: block; max-width: 100%; height: auto; border: 1px solid #ccc; margin: 12px 0 4px; }
+    figure { margin: 16px 0 20px; }
+    figcaption { font-size: .875rem; color: #555; }
+    table { width: 100%; border-collapse: collapse; font-size: .94rem; margin: 10px 0; }
+    th, td { text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #ddd; }
+    th { background: #f5f5f5; }
+    .meta { color: #555; font-size: .94rem; }
+    .back { display: inline-block; margin-bottom: 8px; }
+    .table-wrap { overflow-x: auto; }
+    li + li { margin-top: 4px; }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html#problem">← Back to the proposal</a>
+  <h1>greentech.com.bd: Website Audit</h1>
+  <p class="meta">Prepared for GreenTech System Limited · 31 October 2026 · Checked on desktop, in Chrome</p>
+
+  <h2>Summary</h2>
+  <p>GreenTech has a strong catalogue, four outlets in Agrabad, a service centre, and a loyal customer base. The website doesn't yet turn any of that into online sales. The main reason is that <strong>the website is not connected to the shop's real stock and prices</strong>. Customers are asked to call before buying, many products show ৳0.00, and the site itself says online orders are not taken.</p>
+  <p>Below are the issues we found, grouped by how much they affect sales. Screenshots are included for the three most important ones.</p>
+
+  <h2>1. Critical: stops the website from selling</h2>
+
+  <h3>1.1 The site says it doesn't take online orders, right under the Buy Now button</h3>
+  <p>Every product page shows <em>Add To Cart</em> and <em>Buy Now</em>, and directly underneath a highlighted notice says (in Bangla) that orders are not taken online, and that customers should call to confirm stock and visit the showroom. The footer also shows around 30 payment logos (cards, bKash, banks) under "Pay with". A customer can't tell whether they can buy online or not.</p>
+  <figure>
+    <img src="assets/img/audit/01-no-online-orders.png" alt="Product page: Add To Cart and Buy Now buttons, with a yellow notice below saying online orders are not taken" loading="lazy">
+    <figcaption>Product page (Colorful RTX 3060 Ultra W OC). The yellow notice: "আমাদের অনলাইনে কোন অর্ডার নেওয়া হয় না…"</figcaption>
+  </figure>
+
+  <h3>1.2 Prices and stock are not live, and many products show ৳0.00</h3>
+  <p>The homepage's "Best Monitor" section shows 12 monitors. <strong>All 12 are priced at ৳0.00</strong>: 11 are marked Out of Stock and 1 Pre-Order. The "Best Gadget" section has three more items at ৳0.00. A ৳0.00 price reads as broken (or free), and a homepage section full of unavailable items sends shoppers elsewhere. The header also asks customers to confirm price and stock by phone before ordering.</p>
+  <figure>
+    <img src="assets/img/audit/02-zero-price-monitors.png" alt="Homepage Best Monitor section: twelve monitors, all priced ৳0.00 and marked out of stock or pre-order" loading="lazy">
+    <figcaption>Homepage → "Best Monitor": every product is ৳0.00.</figcaption>
+  </figure>
+
+  <h3>1.3 No clear way to pay or know about delivery</h3>
+  <p>Payment methods, delivery time and delivery cost are not shown on product pages or in the cart. Payment terms and delivery information exist only as footer links.</p>
+
+  <h2>2. High: costs trust and sales today</h2>
+
+  <h3>2.1 Too many phone numbers, and one is wrong</h3>
+  <p>We counted <strong>more than 12 different numbers</strong> across the header, the notices, the footer and product pages. The footer lists <strong>0179080310</strong> for both "Desktop Components" and "Administration". That's 10 digits, which is not a valid Bangladeshi mobile number, so customers calling those departments can't get through. Phone and WhatsApp links in the header also contain stray spaces.</p>
+  <figure>
+    <img src="assets/img/audit/03-footer-numbers.png" alt="Footer showing department and outlet numbers, including 0179080310 twice, and a Pay With block of payment logos" loading="lazy">
+    <figcaption>Footer: "0179080310" is missing a digit. Note also the "Pay with" logos and the "© 2023" copyright.</figcaption>
+  </figure>
+
+  <h3>2.2 Category shortcuts open the wrong products</h3>
+  <ul>
+    <li>"Accessories" → a Corsair power supply</li>
+    <li>"Gaming Chair" → an IP-COM network switch</li>
+    <li>"Hard Disk" → a Long battery</li>
+    <li>"Case Cooler" → Casing</li>
+  </ul>
+
+  <h3>2.3 Breadcrumbs don't help navigation</h3>
+  <p>On product pages the breadcrumb repeats the product name instead of showing <em>Home › Components › Graphics Card</em>, so customers can't step back to the category.</p>
+
+  <h3>2.4 Product data mistakes</h3>
+  <ul>
+    <li>A "WD Green SN350 250GB" product sits on a page address for "WD Blue SN580".</li>
+    <li>"TP-Link EC220-G5 (AC1200)" is described with Wi-Fi 6 (802.11ax) specs.</li>
+    <li>An out-of-stock printer (HP DeskJet 2320) still shows a price, while in-stock-looking items show ৳0.00.</li>
+  </ul>
+
+  <h3>2.5 Menus show empty categories and typos</h3>
+  <p>Menu items with zero products are visible (e.g. "Laptop RAM 0", "Asus 0"). There's a typo in "POS/<strong>Lavel</strong>/ID card Printer", and in page addresses such as <code>externa-internall-dvdrw</code>, <code>pc-powre-monitor</code>, <code>server-worksatation-storage</code> and <code>fanteck-gaming-mouse</code>.</p>
+
+  <h2>3. Brand, design and ease of use</h2>
+  <ul>
+    <li><strong>The site doesn't use the brand's own colors.</strong> The navy header and blue category tiles don't come from the logo, and the logo's green and orange get lost on navy.</li>
+    <li><strong>Four different button colors</strong> (orange search, blue cart, navy Add To Cart, green Buy Now) compete, so nothing says "this is the main action".</li>
+    <li><strong>Product names are cut off</strong> in product cards ("Colorful IGame GeFo…"), hiding the model and capacity that buyers compare.</li>
+    <li><strong>Small text</strong> (about 11–12px) on product pages is hard to read, especially on phones.</li>
+    <li><strong>Copy-pasted section subtitles:</strong> "Latest Trending Product on Market" appears under Latest Product, Best Monitor and Best Gadget.</li>
+    <li><strong>Offers are images of text.</strong> Banner headlines (e.g. "সুলভ মূল্যে সেরা কম্পোনেন্টস শুধুমাত্র GREENTECH-এ") can't be read by Google or screen readers, and banners have no alt text.</li>
+    <li><strong>Product pages are missing</strong> warranty length near the price, delivery time and cost, EMI options, and stock per outlet. Customers have to call for all of these.</li>
+    <li>The footer copyright still says <strong>2023</strong>.</li>
+  </ul>
+
+  <h2>4. Search (Google) and technical</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Item</th><th>Status</th></tr>
+    <tr><td>Structured data (Product, Breadcrumb)</td><td>Present. Keep it, but fix the breadcrumb data.</td></tr>
+    <tr><td>Social sharing tags (Open Graph)</td><td>Present.</td></tr>
+    <tr><td>Homepage main heading (H1)</td><td>Missing.</td></tr>
+    <tr><td>Meta description</td><td>A long keyword list rather than a sentence that makes people click.</td></tr>
+    <tr><td>Page titles</td><td>Product title and heading use different names ("RTX3060" vs "RTX 3060 Ultra W OC 12G L-V").</td></tr>
+    <tr><td>Page weight</td><td>About 5,000 page elements, 71 images and 16 scripts on the homepage. Fine on fast internet, slower on mobile data.</td></tr>
+    <tr><td>Automated requests</td><td>The server rejected a plain (non-browser) request with error 406. Check Google Search Console to make sure Google's crawler isn't blocked as well.</td></tr>
+  </table>
+  </div>
+
+  <h2>5. What's working</h2>
+  <ul>
+    <li>A broad, deep product catalogue with sensible top-level categories.</li>
+    <li>A PC Builder already exists.</li>
+    <li>Four real outlets and a service centre, a trust advantage that online-only shops don't have.</li>
+    <li>Bangla communication that fits the audience.</li>
+    <li>Structured spec tables on product pages.</li>
+  </ul>
+
+  <h2>6. Quick fixes (can be done on the current site now)</h2>
+  <ol>
+    <li>Decide on online orders: either remove the Add To Cart / Buy Now buttons, or start accepting orders and remove the "no online orders" notice.</li>
+    <li>Replace every ৳0.00 with "Call for price" or "Pre-order", and remove out-of-stock items from homepage sections.</li>
+    <li>Fix the invalid footer number <strong>0179080310</strong>, and pick one main hotline.</li>
+    <li>Point the four category shortcuts to the right categories.</li>
+    <li>Hide empty categories and fix the typos.</li>
+    <li>Add alt text to banners, and update the copyright year.</li>
+  </ol>
+  <p>These fixes help, but they don't solve the root problem: the website and the shop run on separate information. That's what the proposal addresses.</p>
+
+  <p><a href="index.html#solution">→ See the proposed solution</a></p>
+</main>
+</body>
+</html>

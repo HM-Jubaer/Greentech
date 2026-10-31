@@ -408,3 +408,13 @@ h1 .kw, h2 .kw, h3 .kw { font-family: inherit; font-weight: inherit; }
   .v-bland__tiles i { aspect-ratio: 3 / 2; }
   .v-bland__cap { font-size: 12px; padding: 0 10px 10px; }
 }
+
+/* "Read full report" link in the pinned problem column */
+.report-btn { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding: 14px 16px; border-radius: 16px; background: #fff; border: 1.5px solid var(--indigo-100); color: var(--night-900); box-shadow: var(--card-shadow); transition: border-color var(--dur), transform var(--dur); }
+.report-btn:hover { border-color: var(--indigo-600); transform: translateY(-1px); }
+.report-btn > .ico { flex: none; width: 22px; height: 22px; color: var(--indigo-600); }
+.report-btn span { flex: 1; font-weight: 700; line-height: 1.3; }
+.report-btn small { display: block; margin-top: 2px; font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--ink-500); }
+.report-btn__arrow { color: var(--indigo-600); transition: transform var(--dur); }
+.report-btn:hover .report-btn__arrow { transform: translateX(3px); }
+@media (max-width: 900px) { .report-btn { margin: 16px 0 8px; } }

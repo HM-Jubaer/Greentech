@@ -8,6 +8,7 @@ Proposal and brand work for **[GreenTech System Limited](https://greentech.com.b
 |---|---|
 | [`index.html`](index.html) | **Client proposal** (main page): problem → one system → full control → brand → next step. Bangla-first with English keywords. |
 | [`style-guide.html`](style-guide.html) | **Style guide**: logo, color, type, components, price/stock states, voice, a11y. Linked from the proposal. |
+| [`audit.html`](audit.html) | **Full website audit** (plain page, with screenshots in `assets/img/audit/`). Linked from the proposal's problem section ("Read full report"). |
 
 ## Not linked (work in progress / internal)
 

@@ -5,3 +5,6 @@ desktop.ini
 node_modules/
 *.log
 .env*
+
+# Internal: pricing / deal prep (never push)
+docs/private/

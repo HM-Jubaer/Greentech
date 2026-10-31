@@ -28,7 +28,7 @@
       var top = -1;
       cards.forEach(function (c, i) {
         var stick = parseFloat(getComputedStyle(c).top) || 0;
-        if (c.getBoundingClientRect().top <= stick + 2) top = i;
+        if (c.getBoundingClientRect().top <= stick + 80) top = i; /* switch as the card is almost in place */
       });
       var first = cards[0].getBoundingClientRect().top < innerHeight * 0.85;
       var current = top === -1 ? (first ? 0 : -1) : top;

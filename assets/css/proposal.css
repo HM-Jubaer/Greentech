@@ -409,12 +409,17 @@ h1 .kw, h2 .kw, h3 .kw { font-family: inherit; font-weight: inherit; }
   .v-bland__cap { font-size: 12px; padding: 0 10px 10px; }
 }
 
-/* "Read full report" link in the pinned problem column */
-.report-btn { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding: 14px 16px; border-radius: 16px; background: #fff; border: 1.5px solid var(--indigo-100); color: var(--night-900); box-shadow: var(--card-shadow); transition: border-color var(--dur), transform var(--dur); }
-.report-btn:hover { border-color: var(--indigo-600); transform: translateY(-1px); }
-.report-btn > .ico { flex: none; width: 22px; height: 22px; color: var(--indigo-600); }
-.report-btn span { flex: 1; font-weight: 700; line-height: 1.3; }
-.report-btn small { display: block; margin-top: 2px; font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--ink-500); }
-.report-btn__arrow { color: var(--indigo-600); transition: transform var(--dur); }
-.report-btn:hover .report-btn__arrow { transform: translateX(3px); }
-@media (max-width: 900px) { .report-btn { margin: 16px 0 8px; } }
+/* "Read full report" button in the pinned problem column */
+.report-btn { display: flex; align-items: center; gap: 14px; margin-top: 22px; padding: 12px 16px 12px 12px; border-radius: 18px; color: #fff;
+  background: radial-gradient(160px 90px at 100% 0%, rgba(102,86,255,.55), transparent 70%), var(--night-900);
+  box-shadow: 0 16px 34px -14px rgba(20,18,58,.65); transition: transform var(--dur), box-shadow var(--dur); }
+.report-btn:hover { transform: translateY(-2px); box-shadow: 0 22px 40px -14px rgba(20,18,58,.75); }
+.report-btn:focus-visible { outline: 3px solid var(--orange-500); outline-offset: 3px; }
+.report-btn__icon { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--leaf-500); color: var(--night-900); }
+.report-btn__icon .ico { width: 22px; height: 22px; stroke-width: 2.2; }
+.report-btn__text { flex: 1; font-family: var(--font-body); font-size: 1.05rem; font-weight: 800; line-height: 1.25; }
+.report-btn__text small { display: block; margin-top: 3px; font-size: 13px; font-weight: 500; color: #C9C6F0; }
+.report-btn__arrow { flex: none; width: 22px; height: 22px; color: var(--leaf-500); stroke-width: 2.4; transition: transform var(--dur); }
+.report-btn:hover .report-btn__arrow { transform: translateX(4px); }
+.steps { margin-top: 22px; }
+@media (max-width: 900px) { .report-btn { margin: 18px 0 6px; } }
